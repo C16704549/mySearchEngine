@@ -7,18 +7,22 @@
 package mySearchEngine;
 
 import java.util.Scanner; // To read user input
+import java.io.IOException;
 
 public class Control 
 {
-
-	public static void main(String[] args) 
+	
+	public static void main(String[] args) throws IOException
 	{
+		
 		
 		Scanner object = new Scanner(System.in); // Object to read user input
 		System.out.println("Please enter a term to be searched for ");
 		
 		String searchTerm = object.nextLine(); // Reads input
 		System.out.println("Desired search term is: " + searchTerm); // Outputs it
+	
+		
 	}
 
 }

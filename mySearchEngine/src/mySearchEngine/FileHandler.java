@@ -6,13 +6,15 @@
 
 package mySearchEngine;
 
-import java.io.File; // For managing files
+import java.io.File; // For managing files 
 import java.io.FileNotFoundException; // For managing file errors
 import java.util.Scanner; 
 
 public class FileHandler 
 {
 
-
+	
+	
+	
 
 }

@@ -7,23 +7,33 @@
 package mySearchEngine;
 
 import java.util.Scanner; // To read user input
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
-public class Control 
-{
-	
-	public static void main(String[] args) throws IOException
-	{
-		
-		
-		Scanner object = new Scanner(System.in); // Object to read user input
-		System.out.println("Please enter a term to be searched for ");
-		
-		String searchTerm = object.nextLine(); // Reads input
-		System.out.println("Desired search term is: " + searchTerm); // Outputs it
-	
-		
-	}
+import java.io.*;
 
+public class Control {
+	public static void main(String[] args) throws IOException {
+		
+		try {
+			FileReader fr = new FileReader("temp.txt");
+			BufferedReader br = new BufferedReader(fr);
+			
+			String str;
+			while ((str = br.readLine()) !=null)
+			{
+				System.out.println(str);
+			}
+		}
+		catch(IOException e){
+			System.out.println("file not found");
+		}
+
+
+	}
 }
+	
+        
 

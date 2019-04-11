@@ -15,25 +15,48 @@ import java.io.IOException;
 import java.io.*;
 
 public class Control {
+	
+	public int termCount;
+	public static String str;
+	static String strSearch = "hello";
+	static int count;
+	
 	public static void main(String[] args) throws IOException {
 		
-		try {
+		try 
+		{
 			FileReader fr = new FileReader("temp.txt");
 			BufferedReader br = new BufferedReader(fr);
 			
-			String str;
-			while ((str = br.readLine()) !=null)
+			while ((str = br.readLine()) !=null) //Reads the txt line by line
 			{
 				System.out.println(str);
+				int lastIndex = 0;//Keeps track of the position 
+				
+				while(lastIndex != -1)
+				{
+
+				    lastIndex = str.indexOf(strSearch,lastIndex);
+
+				    if(lastIndex != -1)
+				    {
+				        count ++;
+				        lastIndex += strSearch.length();
+				    }
+				
+				}
 			}
 		}
-		catch(IOException e){
+		catch(IOException e)
+		{
 			System.out.println("file not found");
 		}
-
-
+		
+		System.out.println("Number of matches = " + count);
 	}
 }
+
+
 	
         
 

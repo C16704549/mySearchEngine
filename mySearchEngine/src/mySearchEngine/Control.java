@@ -6,7 +6,7 @@
 
 package mySearchEngine;
 
-import java.util.Scanner; // To read user input
+import java.util.Scanner; // To read user input 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,13 +16,24 @@ import java.io.*;
 
 public class Control {
 	
-	public int termCount;
-	public static String str;
-	static String strSearch = "hello";
+	static int termCount;
+	static String str;
+	static String strSearch;
 	static int count;
+	
 	
 	public static void main(String[] args) throws IOException {
 		
+		
+		//to take user input with a scanner
+		System.out.println("Enter term to be searched = ");
+		Scanner scTerm = new Scanner(System.in);
+		String strSearch = scTerm.nextLine();
+		
+		FileHandler fileSearch = new FileHandler(strSearch);
+		
+		fileSearch.scanFile();
+		/*
 		try 
 		{
 			FileReader fr = new FileReader("temp.txt");
@@ -52,7 +63,7 @@ public class Control {
 			System.out.println("file not found");
 		}
 		
-		System.out.println("Number of matches = " + count);
+		System.out.println("Number of matches = " + count); */
 	}
 }
 

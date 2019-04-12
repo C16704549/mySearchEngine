@@ -11,6 +11,7 @@ import java.io.File; // For managing files
 import java.io.FileNotFoundException; // For managing file errors
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner; 
 
 public class FileHandler extends IOException
@@ -21,27 +22,33 @@ public class FileHandler extends IOException
 	private String strScan;
 	private File tempFile;
 	private String fileName;
+	public int finCount;
 		
-	
-	public FileHandler(String strSearch) 
+	//Constructor
+	public FileHandler(String strSearch, String fileName, int count) 
 	{
-		this.strScan = strSearch;
+		this.strScan 	= strSearch;
+		this.fileName 	= fileName;
+		this.count 		= count;
 	}
 
 
-	public void scanFile()
+	public int scanFile()
 	{
+		strScan = strScan.toLowerCase(Locale.ENGLISH);// Converting the searched term to lower case
+		
 		try 
 		{
-			FileReader fr = new FileReader("LottoWinnerSurprisesWife.txt");
+			FileReader fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
 			
 			while ((str = br.readLine()) !=null) //Reads the txt line by line
 			{
 				System.out.println(str);
 				int lastIndex = 0;//Keeps track of the position 
+				str = str.toLowerCase(Locale.ENGLISH);// Converting each line to lowercase to be compared
 				
-				while(lastIndex != -1)
+				while(lastIndex != -1) // Will loop if the index does not equal -1
 				{
 				    lastIndex = str.indexOf(strScan,lastIndex);
 				    
@@ -62,6 +69,9 @@ public class FileHandler extends IOException
 		}//end of catch()
 		
 		System.out.println("Number of matches = " + count);
+		
+		return count;
+	
 	}//end of scanFile()
 }//end of FileHandler()
 

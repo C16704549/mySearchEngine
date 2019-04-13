@@ -2,6 +2,7 @@
  * C16704549, Max Blennerhassett 
  * 
  * GUI Class, creates the user interface
+ * and calls file handler methods
  **************************************************/
 
 
@@ -154,5 +155,5 @@ public class GUI extends JFrame implements ActionListener, MouseListener
 	
 	 
 	
-}
+}//end
 

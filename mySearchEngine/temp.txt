@@ -1,8 +1,0 @@
-123
-
-hello
-hello
-hello 
-my name is
-hello hello
-it should return 5

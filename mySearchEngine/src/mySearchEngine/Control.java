@@ -1,7 +1,7 @@
 /**************************************************
  * C16704549, Max Blennerhassett  
  * 
- * Main class of the program, takes User input
+ * Main class of the program, calls the GUI
  **************************************************/
 
 package mySearchEngine;

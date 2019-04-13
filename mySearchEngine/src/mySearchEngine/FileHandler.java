@@ -1,7 +1,8 @@
 /**************************************************
  * C16704549, Max Blennerhassett 
  * 
- * File class, opens and closes files
+ * File class, opens and closes files,
+ * manages the bulk of the work
  **************************************************/
 
 package mySearchEngine;
@@ -52,7 +53,6 @@ public class FileHandler extends IOException
 				    {
 				        setCount(getCount() + 1);
 				        lastIndex += strSearch.length();
-				     // DELETE THIS System.out.println(getCount());
 				    }
 				    
 				}
@@ -62,6 +62,7 @@ public class FileHandler extends IOException
 			br.close(); //closes the reader to avoid memory leaks
 			
 		}
+		
 		//in case of error 
 		catch(IOException e)
 		{

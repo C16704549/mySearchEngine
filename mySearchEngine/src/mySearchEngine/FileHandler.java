@@ -19,30 +19,29 @@ public class FileHandler extends IOException
 	
 	private String str;
 	private int count;
-	private String strScan;
+	private String strSearch;
 	private File tempFile;
 	private String fileName;
-	public int finCount;
 		
 	//Constructor
-	public FileHandler(String strSearch, String fileName, int count) 
+	public FileHandler(String strSearch, String fileName) 
 	{
-		this.strScan 	= strSearch;
+		this.strSearch 	= strSearch;
 		this.fileName 	= fileName;
-		this.count 		= count;
 	}
 
 
 	public int scanFile()
 	{
-		strScan = strScan.toLowerCase(Locale.ENGLISH);// Converting the searched term to lower case
+		strSearch = strSearch.toLowerCase(Locale.ENGLISH);// Converting the searched term to lower case
+		setCount(0);//resets count
 		
 		try 
 		{
 			FileReader fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
 			
-			while ((str = br.readLine()) !=null) //Reads the txt line by line
+			while ((str = br.readLine()) !=null) //Reads the txt line by line 
 			{
 				System.out.println(str);
 				int lastIndex = 0;//Keeps track of the position 
@@ -50,14 +49,16 @@ public class FileHandler extends IOException
 				
 				while(lastIndex != -1) // Will loop if the index does not equal -1
 				{
-				    lastIndex = str.indexOf(strScan,lastIndex);
+				    lastIndex = str.indexOf(strSearch,lastIndex);
 				    
 				    if(lastIndex != -1)
 				    {
-				        count ++;
-				        lastIndex += strScan.length();
+				        setCount(getCount() + 1);
+				        lastIndex += strSearch.length();
+				        System.out.println(getCount());
 				    }//end of if
-				
+				    
+				 
 				}//end of nested while
 				
 			}//end of while
@@ -68,11 +69,23 @@ public class FileHandler extends IOException
 			System.out.println("file not found");
 		}//end of catch()
 		
-		System.out.println("Number of matches = " + count);
+		System.out.println("Number of matches = " + getCount());
 		
-		return count;
+		return getCount();
 	
 	}//end of scanFile()
+
+
+	public int getCount() 
+	{
+		return count;
+	}
+
+
+	public void setCount(int count) 
+	{
+		this.count = count;
+	}
 }//end of FileHandler()
 
 	

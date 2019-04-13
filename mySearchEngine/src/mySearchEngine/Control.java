@@ -13,21 +13,27 @@ import java.io.*;
 public class Control {
 	
 	static String strSearch;
+	static String fileName;
+	static int count;
 	
 	public static void main(String[] args) throws IOException 
 	{
 		
 		GUI myInterface = new GUI("My Search Engine");
 		
-		//to take user input with a scanner
 		/*
+		//to take user input with a scanner
+	
 		System.out.println("Enter term to be searched = ");
 		Scanner scTerm = new Scanner(System.in);
 		String strSearch = scTerm.nextLine();
 		
-		FileHandler fileSearch = new FileHandler(strSearch);
+		FileHandler fileSearch = new FileHandler(strSearch, fileName, count);
 		fileSearch.scanFile();
+		
+		System.out.println("Count is " + fileSearch.getCount());
 		*/
+	
 	}
 }
 

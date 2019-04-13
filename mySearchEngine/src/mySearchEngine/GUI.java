@@ -4,6 +4,7 @@
  * GUI Class, creates the user interface
  **************************************************/
 
+
 package mySearchEngine;
 
 import java.awt.FlowLayout;
@@ -34,15 +35,15 @@ public class GUI extends JFrame implements ActionListener, MouseListener
 	 
 	//Temporary variables for program function
 	private String fileName;
-	public int finCount;
+	public int count;
 	private int i = 1;
 	 
 	//For listing/storage
 	private String file1 = "Brexit.txt";
-	private String file2 = "JulianAssange";
+	private String file2 = "JulianAssange.txt";
 	private String file3 = "LottoWinnerSurprisesWife.txt";
-	private String file4 = "OmarAlBashir";
-	private String file5 = "SouthKoreaCriminalisingAbortion";
+	private String file4 = "OmarAlBashir.txt";
+	private String file5 = "SouthKoreaCriminalisingAbortion.txt";
 	
 	private int count1;
 	private int count2;
@@ -76,6 +77,7 @@ public class GUI extends JFrame implements ActionListener, MouseListener
 	@Override
 	public void actionPerformed(ActionEvent event) 
 	{
+		
 		//User hits search 
 		if 	(event.getSource() == search)
 		    {	
@@ -83,18 +85,47 @@ public class GUI extends JFrame implements ActionListener, MouseListener
 		    	strSearch = strSearch.replace(" ","");//Removes spaces from the search term
 		    	JOptionPane.showMessageDialog(this, "You entered " + strSearch);	
 		    	
-		    	FileHandler fileSearch 	= new FileHandler(strSearch, file1, count1);
-		    	FileHandler fileSearch2 = new FileHandler(strSearch, file2, count2);
-		    	FileHandler fileSearch3 = new FileHandler(strSearch, file3, count3);
-		    	FileHandler fileSearch4	= new FileHandler(strSearch, file4, count4);
-		    	FileHandler fileSearch5	= new FileHandler(strSearch, file5, count5);
+		    	FileHandler fileSearch1 = new FileHandler(strSearch, file1);
+		    	fileSearch1.scanFile();
+		    	count1 = fileSearch1.getCount();
+		    	fileSearch1.setCount(0);
+
+		    	
+		    	
+		    	FileHandler fileSearch2 = new FileHandler(strSearch, file2);
+		    	fileSearch2.scanFile();
+		    	count2 = fileSearch2.getCount();
+		    	fileSearch2.setCount(0);
+		    
+		    	
+
+		    	FileHandler fileSearch3 = new FileHandler(strSearch, file3);
+		    	fileSearch3.scanFile();
+		    	count3 = fileSearch3.getCount();
+		    	fileSearch3.setCount(0);
+
+		    	
+
+		    	FileHandler fileSearch4	= new FileHandler(strSearch, file4);
+		    	fileSearch4.scanFile();
+		    	count4 = fileSearch4.getCount();
+		    	fileSearch4.setCount(0);
+
+		    	
+		    	FileHandler fileSearch5	= new FileHandler(strSearch, file5);
+		    	fileSearch5.scanFile();
+		    	count5 = fileSearch5.getCount();
+		    	fileSearch5.setCount(0);
+
+		    	
+		    	//JOptionPane.showMessageDialog(this, "This = " + count3);
 		    	
 		    	JOptionPane.showMessageDialog(this, "Your search term was: " + strSearch + "\n" + 
-			    		file1 + "returned it " + count1 + " times\n" +
-			    		file2 + "returned it " + count2 + " times\n" +
-			    		file3 + "returned it " + count3 + " times\n" +		
-			    		file4 + "returned it " + count4 + " times\n" +											
-			    		file5 + "returned it " + count5 + " times");
+			    		file1 + " returned it " + count1 + " times\n" +
+			    		file2 + " returned it " + count2 + " times\n" +
+			    		file3 + " returned it " + count3 + " times\n" +		
+			    		file4 + " returned it " + count4 + " times\n" +											
+			    		file5 + " returned it " + count5 + " times");
 		    	
 		    }
 		    	
@@ -135,3 +166,4 @@ public class GUI extends JFrame implements ActionListener, MouseListener
 	 
 	
 }
+
